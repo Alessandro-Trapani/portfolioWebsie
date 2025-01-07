@@ -1,0 +1,82 @@
+
+body{
+    background-color: #242331;
+   
+}
+.test{
+  background-image: url("C:/Users/aless/react/my-app/public/assets/background.png"); 
+    
+}
+.navbar{
+    visibility: hidden;
+}
+
+.welcomeText {
+    
+    position: absolute;
+    top: 40%; 
+    left: 41%;
+    font-size: 4em;
+    color: #fff;
+    font-family: "Share Tech Mono", serif;
+
+      
+  }
+
+  
+
+
+@keyframes slideInWithBlur {
+    0% {
+      opacity: 0; /* Fully transparent */
+      filter:blur(10px); 
+      transform: translateY(100%); /* Positioned off the page */
+    }
+    100% {
+      opacity: 1; /* Fully visible */
+      transform: translateY(0); /* Final position */
+    }
+  }
+
+
+@keyframes slideOut {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+@keyframes slideIn {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes popup {
+    0%{
+      transform: scale(1);
+    }
+    50%{
+      transform: scale(1.4);
+    }
+    60%{
+      transform: scale(1.1);
+    }
+    70%{
+      transform: scale(1.2);
+    }
+    80%{
+      transform: scale(1);
+    }
+    90%{
+      transform: scale(1.1);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
