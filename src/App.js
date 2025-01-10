@@ -1,14 +1,19 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-
-import Test from "./components/Test";
+import ParallaxSec from "./components/ParallaxSec";
+import Competences from "./components/Competences";
 import Header from "./components/Header";
+import useSchreenSize from "./hooks/useSchreenSize";
+
 export default function App() {
   return (
     <>
-      <Header />
+      <ParallaxSec />
       <Navbar />
-      <Test />
+      <Competences />
     </>
   );
 }
+//<Header />
+//      <Navbar />
+//     <Competences />

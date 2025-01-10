@@ -1,31 +1,24 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Navbar() {
   useEffect(() => {
-    const canvas = document.getElementById("header");
     const navbar = document.getElementById("navbar");
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          navbar.style.animation = "slideIn 1s forwards";
-          navbar.style.display = "block";
-        } else {
-          navbar.style.animation = "slideOut 1s forwards";
-          navbar.style.visibility = "visible";
-          navbar.style.display = "block";
-          console.log("Navbar is not visible");
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const handleScroll = () => {
+      if (window.scrollY < window.innerHeight) {
+        navbar.style.animation = "slideIn 1s forwards";
+      } else {
+        navbar.style.visibility = "visible";
 
-    if (canvas && navbar) {
-      observer.observe(canvas);
-    }
+        navbar.style.animation = "slideOut 1s forwards";
+      }
+    };
 
-    // Cleanup the observer on unmount
-    return () => observer.disconnect();
+    // Attach scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on unmount
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []); // Empty dependency array ensures this runs once when the component is mounted
 
   return (
@@ -39,16 +32,7 @@ export default function Navbar() {
               alt="..."
             />
           </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasDarkNavbar"
-            aria-controls="offcanvasDarkNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+
           <div
             class="offcanvas offcanvas-end text-bg-dark"
             tabindex="-1"
