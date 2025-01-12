@@ -1,23 +1,28 @@
 import { ParallaxBanner } from "react-scroll-parallax";
 import useSchreenSize from "../hooks/useSchreenSize";
+import typeWriter from "../utils/typeWriter";
 
-export default function Parallax() {
+export default function ParallaxHeader() {
   const schreenSize = useSchreenSize().width;
+
+  window.onload = () => {
+    typeWriter("WelcomeMessage", "Welcome", 200);
+  };
 
   let mountainBackSize, mountainMiddleSize, mountainFrontSize;
 
   if (schreenSize >= 1550) {
-    mountainBackSize = "0 120%";
+    mountainBackSize = "0 150%";
     mountainMiddleSize = "0 110%";
     mountainFrontSize = "0 75%";
   } else if (schreenSize >= 1400) {
-    mountainBackSize = "0 120%";
+    mountainBackSize = "0 150%";
     mountainMiddleSize = "0 80%";
     mountainFrontSize = "0 65%";
   } else if (schreenSize >= 1200) {
-    mountainBackSize = "0 90%";
-    mountainMiddleSize = "0 60%";
-    mountainFrontSize = "0 55%";
+    mountainBackSize = "0 150%";
+    mountainMiddleSize = "0 80%";
+    mountainFrontSize = "0 65%";
   } else if (schreenSize >= 600) {
     mountainBackSize = "0 -150px";
     mountainMiddleSize = "0 -200px";
@@ -85,19 +90,3 @@ export default function Parallax() {
     />
   );
 }
-window.addEventListener("load", () => {
-  setTimeout(() => typeWriter("WelcomeMessage", "Welcome", 200), 1000);
-
-  function typeWriter(id, txt, speed, i = 0) {
-    const element = document.getElementById(id);
-    if (!element) {
-      console.error(`Element with id "${id}" not found.`);
-      return;
-    }
-
-    if (i < txt.length) {
-      element.innerHTML += txt.charAt(i);
-      setTimeout(() => typeWriter(id, txt, speed, i + 1), speed);
-    }
-  }
-});

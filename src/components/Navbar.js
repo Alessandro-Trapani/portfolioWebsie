@@ -1,25 +1,6 @@
-import { useEffect } from "react";
-
+import useNavbarAnimation from "../hooks/useNavbarAnimation";
 export default function Navbar() {
-  useEffect(() => {
-    const navbar = document.getElementById("navbar");
-
-    const handleScroll = () => {
-      if (window.scrollY < window.innerHeight) {
-        navbar.style.animation = "slideIn 1s forwards";
-      } else {
-        navbar.style.visibility = "visible";
-
-        navbar.style.animation = "slideOut 1s forwards";
-      }
-    };
-
-    // Attach scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on unmount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // Empty dependency array ensures this runs once when the component is mounted
+  useNavbarAnimation("navbar");
 
   return (
     <>

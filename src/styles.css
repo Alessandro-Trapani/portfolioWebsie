@@ -4,10 +4,24 @@ html{
 
 
 body{
-    background-color: #242331;
-   
+  background-color: #242331;
+  color: #fff; 
 }
 
+.animated{
+  visibility: hidden;
+  opacity: 1; /* Initially hidden */
+   /* Positioned slightly below */
+  transition: opacity 1s ease, transform 1s ease;
+  margin-top: 0px;
+
+}
+
+.btn-dark {
+  background-color: #242331;
+  color: #fff;
+  border: 1px solid #fff;
+}
 
 
 
@@ -17,9 +31,10 @@ body{
   object-fit: cover; /* Ensures the image covers the header area */
   object-position: center;
   display: block;
-
-    
+   
 }
+
+
 
 .headerContainer{
   overflow: hidden;
@@ -27,34 +42,74 @@ body{
   position:relative ;
 }
 
-.test{
-  background-image: url("C:/Users/aless/react/my-app/public/assets/background.png"); 
-  width: 100%;
-  height: 300vh;
- 
-}
+
 .navbar{
     visibility: hidden;
     
 }
-
-.competence{
-  border: solid black 1px;
-  margin: 2px;
-  padding: 4px;
-  border-radius: 20px;
-  animation: slideInWithBlur 1s ease ;
-  animation-timeline: view();
-  animation-range-start: 0%;
-  animation-range-end:  70%;
+.competencesContainer {
+  gap: 20px;
 }
 
-.competencesContainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 200px;
+.competencesSection{
+  width: 100%;
+  height: 200vh;
+  
+}
+
+
+
+    .skillsText > p{
+      height: 100px;
+      margin-bottom: 0px;
+      padding-top: 10px;
+      }
+
+      
+      @media (max-width: 768px) {
+        .skillsText h2{
+           padding-bottom: 20px;/* Reduce padding on small screens */
+        }
+
+        .skillsText a{
+          margin-bottom: 150px;
+          
+        }
+
+        .skillsText p{
+          margin-bottom: 0;
+        }
+
+        
+      }
+
+.competence {
+  margin: 2px;
+  padding: 4px;
+  width: auto;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Positioned slightly below */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+
+.animated.visible {
+  opacity: 1; /* Fully visible */
+  animation: slideIn 1s forwards; /* Slide in animation */
+  transform: translateY(20); /* Move to the final position */
+}
+
+
+/* Animation keyframes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideInFromLeft {

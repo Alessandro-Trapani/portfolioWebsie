@@ -1,19 +1,38 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import ParallaxSec from "./components/ParallaxSec";
+import ParallaxHeader from "./components/ParallaxHeader";
 import Competences from "./components/Competences";
-import Header from "./components/Header";
-import useSchreenSize from "./hooks/useSchreenSize";
-
+import { ParallaxBanner } from "react-scroll-parallax";
+import Projects from "./components/Projects";
 export default function App() {
   return (
     <>
-      <ParallaxSec />
+      <ParallaxHeader />
+
       <Navbar />
-      <Competences />
+      <ParallaxBanner
+        layers={[
+          {
+            image: "../assets/background.png", // Path to your background image
+            speed: 10, // Negative values move slower than the scroll
+          },
+          {
+            speed: -30, // Text layer doesn't move
+            style: {
+              backgroundSize: "cover", // Ensures the image covers the entire area
+              backgroundPosition: "center top", // Centers the image within the container
+              backgroundRepeat: "no-repeat", // Prevents image repetition
+            },
+            children: (
+              <>
+                <Competences />
+                <Projects />
+              </>
+            ),
+          },
+        ]}
+        className="competencesSection"
+      />
     </>
   );
 }
-//<Header />
-//      <Navbar />
-//     <Competences />
