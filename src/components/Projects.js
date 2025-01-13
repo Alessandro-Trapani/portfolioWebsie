@@ -1,13 +1,13 @@
 export default function Projects() {
   return (
-    <section id="projects" class="py-5 bg-light">
+    <section id="projects" class="py-5">
       <div class="container">
-        <h2 class="text-center mb-5">My Projects</h2>
+        <h2 class="text-center mb-5 animated">My Projects</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col">
-            <div class="card project-card">
+            <div class="card project-card ">
               <img
-                src="https://via.placeholder.com/400x200"
+                src="https://picsum.photos/400/200"
                 class="card-img-top project-image"
                 alt="Project 1"
               />
@@ -20,7 +20,7 @@ export default function Projects() {
                 </p>
                 <a
                   href="https://github.com/yourusername/project-one"
-                  class="btn btn-project"
+                  class="btn btn-dark"
                 >
                   View Project <i class="fas fa-arrow-right"></i>
                 </a>
@@ -29,9 +29,9 @@ export default function Projects() {
           </div>
 
           <div class="col">
-            <div class="card project-card">
+            <div class="card project-card ">
               <img
-                src="https://via.placeholder.com/400x200"
+                src="https://picsum.photos/400/200"
                 class="card-img-top project-image"
                 alt="Project 2"
               />
@@ -44,7 +44,7 @@ export default function Projects() {
                 </p>
                 <a
                   href="https://github.com/yourusername/project-two"
-                  class="btn btn-project"
+                  class="btn btn-dark"
                 >
                   View Project <i class="fas fa-arrow-right"></i>
                 </a>
@@ -53,9 +53,9 @@ export default function Projects() {
           </div>
 
           <div class="col">
-            <div class="card project-card">
+            <div class="card project-card ">
               <img
-                src="https://via.placeholder.com/400x200"
+                src="https://picsum.photos/400/200"
                 class="card-img-top project-image"
                 alt="Project 3"
               />
@@ -68,7 +68,7 @@ export default function Projects() {
                 </p>
                 <a
                   href="https://github.com/yourusername/project-three"
-                  class="btn btn-project"
+                  class="btn btn-dark"
                 >
                   View Project <i class="fas fa-arrow-right"></i>
                 </a>

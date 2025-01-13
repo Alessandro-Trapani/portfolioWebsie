@@ -5,7 +5,7 @@ export default function Competences() {
 
   return (
     <>
-      <div class="row align-items-center" style={{ padding: "110vh  0" }}>
+      <div class="row align-items-center" style={{ padding: "110vh 0 0 0" }}>
         <div class="skillsText col-md-6 text-section ps-5 ">
           <h2 class="animated display-4 mb-5">My Skills & Expertise</h2>
           <p class="animated lead">

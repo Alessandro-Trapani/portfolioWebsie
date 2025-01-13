@@ -1,3 +1,4 @@
+
 html{
   scroll-behavior: smooth;
 }
@@ -14,14 +15,46 @@ body{
    /* Positioned slightly below */
   transition: opacity 1s ease, transform 1s ease;
   margin-top: 0px;
-
+  
 }
+
 
 .btn-dark {
   background-color: #242331;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #ccc;
+  border: 1px solid #676767;
 }
+
+.btn-dark:hover {
+  background-color: #242331;
+  color: #ccc;
+  border: 1px solid #676767;
+}
+
+.contactForm{
+  width: 50%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+
+.contactForm .form-control {
+  background-color: #242331;  /* Dark background */
+  color: #fff;  /* Light text */
+  border: 1px solid #676767; /* Slightly lighter border */
+}
+
+.contactForm .form-control:focus {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2), /* Soft dark shadow */
+    0 4px 8px rgba(0, 0, 0, 0.15), /* Mid shadow */
+    0 8px 16px rgba(0, 0, 0, 0.1) /* Custom shadow */
+}
+
+.contactForm .form-control::placeholder {
+  color: #ccc;  /* Light placeholder text */
+}
+
 
 
 
@@ -44,42 +77,49 @@ body{
 
 
 .navbar{
-    visibility: hidden;
+  visibility: hidden;
+  background-color: rgba(24, 23, 31, .95);
     
 }
 .competencesContainer {
   gap: 20px;
 }
 
-.competencesSection{
+.parallaxBody{
   width: 100%;
-  height: 200vh;
-  
+  height: 270vh;
+  margin: 0;
 }
 
+.footer{
+  background-color: #242331;
+  border-top: 0.5px solid #676767;
+  height: 100px;
+}
 
-
-    .skillsText > p{
-      height: 100px;
-      margin-bottom: 0px;
-      padding-top: 10px;
-      }
+.skillsText > p{
+  height: 100px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+}
 
       
-      @media (max-width: 768px) {
-        .skillsText h2{
-           padding-bottom: 20px;/* Reduce padding on small screens */
-        }
+@media (max-width: 800px) {
+  .skillsText h2{
+    padding-bottom: 20px;/* Reduce padding on small screens */
+    }
 
-        .skillsText a{
-          margin-bottom: 150px;
-          
-        }
+  .skillsText a{
+    margin-bottom: 150px;
+    }
 
-        .skillsText p{
-          margin-bottom: 0;
-        }
+  .skillsText p{
+    margin-bottom: 0;
+    }
 
+  .parallaxBody{
+    height: 550vh;
+  }
         
       }
 
@@ -92,6 +132,13 @@ body{
   transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
 }
 
+.bodyImage{
+  background: linear-gradient(180deg, rgba(10,10,10,1) 1%, rgba(0,0,0,0) 30%), /* Black gradient overlay */
+  url('../public/assets/background.svg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 
 .animated.visible {
   opacity: 1; /* Fully visible */
@@ -99,6 +146,36 @@ body{
   transform: translateY(20); /* Move to the final position */
 }
 
+.project-card {
+  background-color: #242331;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Slightly lifts the card */
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 15px 40px 0 rgba(0, 0, 0, 0.25); /* Adds a stronger shadow */
+  background-color: #2f2d41; /* Slightly lightens the background for a glow effect */
+}
+
+.project-card:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.1); /* Creates a glowing outline */
+  pointer-events: none; /* Ensures it doesn't interfere with interactions */
+}
+
+
+.project-card > img{
+  border-radius: 15px 15px 0 0;
+}
 
 /* Animation keyframes */
 @keyframes slideIn {
@@ -127,7 +204,7 @@ body{
     
     font-size: 4em;
     color: #fff;
-    font-family: "Share Tech Mono", serif;
+    font-family: "Major Mono Display", serif;
     text-align: bottom;
       
   }

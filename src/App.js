@@ -4,6 +4,8 @@ import ParallaxHeader from "./components/ParallaxHeader";
 import Competences from "./components/Competences";
 import { ParallaxBanner } from "react-scroll-parallax";
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 export default function App() {
   return (
     <>
@@ -13,8 +15,8 @@ export default function App() {
       <ParallaxBanner
         layers={[
           {
-            image: "../assets/background.png", // Path to your background image
             speed: 10, // Negative values move slower than the scroll
+            class: "bodyImage",
           },
           {
             speed: -30, // Text layer doesn't move
@@ -27,12 +29,14 @@ export default function App() {
               <>
                 <Competences />
                 <Projects />
+                <Contact />
               </>
             ),
           },
         ]}
-        className="competencesSection"
+        className="parallaxBody"
       />
+      <Footer />
     </>
   );
 }

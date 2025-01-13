@@ -8,66 +8,89 @@ export default function ParallaxHeader() {
   window.onload = () => {
     typeWriter("WelcomeMessage", "Welcome", 200);
   };
+  let multiplier = 1,
+    bottomMultiplier = 1;
 
-  let mountainBackSize, mountainMiddleSize, mountainFrontSize;
+  function determinPosition(basePosition, sizeMultiplier) {
+    if (typeof basePosition === "number") {
+      // If the input is a number, multiply directly and convert to string
+      return String(basePosition * sizeMultiplier) + "%";
+    }
+  }
+  // Get the screen size
 
-  if (schreenSize >= 1550) {
-    mountainBackSize = "0 150%";
-    mountainMiddleSize = "0 110%";
-    mountainFrontSize = "0 75%";
-  } else if (schreenSize >= 1400) {
-    mountainBackSize = "0 150%";
-    mountainMiddleSize = "0 80%";
-    mountainFrontSize = "0 65%";
-  } else if (schreenSize >= 1200) {
-    mountainBackSize = "0 150%";
-    mountainMiddleSize = "0 80%";
-    mountainFrontSize = "0 65%";
-  } else if (schreenSize >= 600) {
-    mountainBackSize = "0 -150px";
-    mountainMiddleSize = "0 -200px";
-    mountainFrontSize = "40% 50%";
-  } else {
-    mountainBackSize = "0 -150px";
-    mountainMiddleSize = "0 -250px";
-    mountainFrontSize = "40% 0%";
+  if (schreenSize < 1000) {
+    multiplier = 1.15; // Adjust multiplier for smaller screens
+    bottomMultiplier = 0.95;
   }
 
   return (
     <ParallaxBanner
       layers={[
         {
-          image: "../assets/ursa.jpg",
-          speed: -40,
+          image: "public/assets/starry-sky.jpg",
+          speed: -65,
           style: {
+            backgroundColor: "#011C27",
             backgroundSize: "cover", // Ensures the image covers the entire area
-            backgroundPosition: " center", // Centers the image within the container
+            backgroundPosition: "top", // Centers the image within the container
             backgroundRepeat: "no-repeat", // Prevents image repetition
-            minHeight: "100%", // Prevents the image from repeating
+            // Prevents the image from repeating
           },
         },
-
         {
-          image: "../assets/mountainBack.png",
+          image: "../assets/mountain0.svg",
           speed: -60,
           style: {
-            backgroundSize: "cover", // Makes sure the image is fully visible without cropping
-            backgroundPosition: mountainBackSize, // Centers the image
+            backgroundSize: "contain", // Makes sure the image is fully visible without cropping
+            backgroundPosition:
+              "top " + determinPosition(52, multiplier) + " left", // Centers the image
             backgroundRepeat: "no-repeat", // Prevents the image from repeating
           },
         },
         {
-          image: "../assets/mountainMiddle.png",
+          image: "../assets/mountain1.svg",
+          speed: -50,
+          style: {
+            backgroundSize: "contain", // Makes sure the image is fully visible without cropping
+            backgroundPosition:
+              "top " + determinPosition(58, multiplier) + " left", // Centers the image
+            backgroundRepeat: "no-repeat", // Prevents the image from repeating
+          },
+        },
+        {
+          image: "../assets/mountain2.svg",
+          speed: -40,
+          style: {
+            backgroundSize: "contain", // Makes sure the image is fully visible without cropping
+            backgroundPosition:
+              "top " + determinPosition(65, multiplier) + " left", // Centers the image
+            backgroundRepeat: "no-repeat", // Prevents the image from repeating
+          },
+        },
+        {
+          image: "../assets/mountain3.svg",
           speed: -30,
           style: {
-            backgroundSize: "cover", // Makes sure the image is fully visible without cropping
-            backgroundPosition: mountainMiddleSize, // Centers the image
+            backgroundSize: "contain", // Makes sure the image is fully visible without cropping
+            backgroundPosition:
+              "top " + determinPosition(70, multiplier) + " left", // Centers the image
+            backgroundRepeat: "no-repeat", // Prevents the image from repeating
+          },
+        },
+        {
+          image: "../assets/mountain4.svg",
+          speed: -20,
+          style: {
+            backgroundSize: "contain", // Makes sure the image is fully visible without cropping
+            backgroundPosition:
+              "top " + determinPosition(80, multiplier) + " left", // Centers the image
             backgroundRepeat: "no-repeat", // Prevents the image from repeating
           },
         },
         {
           backgroundPosition: "0 120",
-          speed: -40,
+          speed: -65,
           children: (
             <div class="welcomeTextDiv ">
               <h1 id="WelcomeMessage" class="welcomeText"></h1>
@@ -75,17 +98,17 @@ export default function ParallaxHeader() {
           ),
         },
         {
-          image: "../assets/mountFront.png",
+          image: "../assets/mountain5.svg",
           speed: 0,
           style: {
-            backgroundSize: "cover", // Makes sure the image is fully visible without cropping
-            backgroundPosition: mountainFrontSize, // Centers the image
+            backgroundSize: "contain", // Makes sure the image is fully visible without cropping
+            backgroundPosition:
+              "top " + determinPosition(110, bottomMultiplier) + " left", // Centers the image
             backgroundRepeat: "no-repeat", // Prevents the image from repeating
           },
-          id: "navbarTrigger",
         },
       ]}
-      className="aspect-[2/1]"
+      className="aspect-[2/1] parallaxHeader"
       style={{ height: "100vh", margin: "0 auto" }}
     />
   );

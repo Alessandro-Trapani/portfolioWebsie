@@ -4,7 +4,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav id="navbar" class="navbar navbar-dark bg-dark fixed-top">
+      <nav id="navbar" class="navbar navbar-dark  fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img
